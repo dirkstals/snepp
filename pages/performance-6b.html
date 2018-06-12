@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Demo</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+
+		@font-face {
+			font-family: 'custom';
+			src:url(data:application/font-woff;charset=utf-8;base64,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) format('woff'),
+				url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		.custom-icons {
+			font-family: 'custom';
+			speak: none;
+			font-size: 100%;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			vertical-align: middle;
+
+
+			letter-spacing: 0;
+			-webkit-font-feature-settings: "liga";
+			-moz-font-feature-settings: "liga=1";
+			-moz-font-feature-settings: "liga";
+			-ms-font-feature-settings: "liga" 1;
+			-o-font-feature-settings: "liga";
+			font-feature-settings: "liga";
+
+
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		.custom-icons__white{
+			color: rgba(255,255,255,0.87);
+		}
+
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body{
+			font-family: Arial, serif;
+			font-weight: 400;
+			font-size: 100%;
+			color: rgba(0,0,0,0.87);
+		}
+
+		img{
+			width: 100%;
+			display: block;
+		}
+
+		a{
+			text-decoration: none;
+		}
+
+		.menu{
+			background: #2196F3;
+			display: block;
+			width: 100%;
+			height: 3rem;
+			overflow: hidden;
+		}
+
+		.menu__menu-group{
+			display: block;
+			height: 3rem;
+		}
+
+		.menu__menu-group__left{
+			float: left;
+		}
+
+		.menu__menu-group__right{
+			float: right;
+		}
+
+		.menu__menu-items{
+			list-style: none;
+			font-size: 0;
+		}
+
+		.menu-item{
+			height: 3rem;
+			display: inline-block;
+			line-height: 1.5rem;
+			font-size: 1.5rem;
+			vertical-align: middle;
+		}
+
+		.menu-item__link{
+			height: 3rem;
+		    text-align: center;
+			padding: .5rem;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.menu-item__text{
+			height: 3rem;
+			padding: .5rem;
+			display: inline-block;
+		}
+
+		.content{
+			padding: .5rem;
+		}
+
+		.content__title{
+			font-weight: 500;
+			font-size: 2rem;
+			padding: .5rem 0;
+		}
+
+		.article__rearrange{
+			margin: 0 -.5rem;
+		}
+
+		.article__text{
+			padding: .5rem 0;
+			font-size: 1rem;
+			text-align: justify;
+		}
+
+		.article__item{
+			padding: .5rem;
+		}
+
+		.article__divide-by-three{
+			font-size: 0;
+		}
+
+		.article__divide-by-three .article__item{
+			display: inline-block;
+			width: 100%;
+		}
+
+		.search{
+			height: 3rem;
+			font-size: 0;
+		}
+
+		.search__icon{
+			padding: .5rem;
+		    font-size: 1.5rem;
+		    line-height: 1.5rem;
+		    display: inline-block;
+		    height: 3rem;
+		    width: 3rem;
+		    text-align: center;
+		    vertical-align: middle;
+		}
+
+		.search__element{
+			border: none;
+		    line-height: 1.5rem;
+		    font-size: 1rem;
+		    height: 2rem;
+		    margin: .5rem;
+		    vertical-align: middle;
+		    outline: none;
+		    padding: .25rem .5rem;
+		}
+
+		.loading{
+			padding-bottom: 56.3%;
+		}
+
+		.loading img{
+			display: none;
+		}
+
+		button {
+			border: 0;
+			background: none;
+			font-size: 100%;
+			line-height: 1rem;
+		}
+
+		.main {
+			width: 100%;
+		  margin: 0 auto;
+			min-height: 100vh;
+			position: relative;
+		  z-index: 1;
+		  left: 0;
+		  backface-visibility: hidden;
+			transition: transform .2s ease-in;
+			transform: translate3d(0, 0, 0);
+		}
+
+		.menu--mobile {
+			height: 100vh;
+		  width: 35%;
+		  margin-left: -35%;
+		  top: 0;
+		  left: 0;
+		  background: #eee;
+		  position: fixed;
+		}
+
+		.menu--mobile .menu-item {
+			width: 100%;
+		}
+
+		.menu--mobile .menu-item__link {
+			font-size: 1rem;
+			width: 100%;
+			color: #222;
+			text-transform: uppercase;
+			line-height: 2rem;
+		}
+
+		.icon__toggle .custom-icons:nth-child(1) {
+			display: inline-block;
+		}
+		.icon__toggle .custom-icons:nth-child(2) {
+			display: none;
+		}
+
+		.main.menu-open .menu .icon__toggle .custom-icons:nth-child(1) {
+			display: none;
+		}
+
+		.main.menu-open .menu .icon__toggle .custom-icons:nth-child(2) {
+		 display: inline-block;
+		}
+
+		.main.menu-open {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    overflow-x: visible;
+		    width: 100%;
+		    transition: transform .3s ease-out;
+				transform: translate3d(35%, 0, 0);
+		}
+
+		@media screen and (min-width: 480px) {
+
+			.article__divide-by-three .article__item{
+				width: 33.3333333%;
+			}
+
+		}
+
+	</style>
+
+	<noscript id="async-stylesheets">
+
+		<link rel="stylesheet" href="../styles/performance-7.css" />
+
+	</noscript>
+
+	<script>!function(e){var t=[],s=e.querySelector("#async-stylesheets"),r=e.querySelector("head"),n=e.createElement("div");n.innerHTML=s.textContent;for(var l=0;h=n.children[l];l++)t.push(h);for(var l=0;h=t[l];l++)r.appendChild(h)}(document);</script>
+
+</head>
+
+<body>
+
+	<main class="main">
+
+		<header class="menu">
+
+			<div class="menu__menu-group menu__menu-group__left">
+
+				<ul class="menu__menu-items">
+
+					<li class="menu-item">
+						<button class="menu-item__link icon__toggle js-menu-toggle">
+							<span class="custom-icons custom-icons__white">menu</span>
+							<span class="custom-icons custom-icons__white">sluit</span>
+						</button>
+					</li>
+
+					<li class="menu-item"><div class="menu-item__text"><span class="custom-icons custom-icons__white">logo</span></div></li>
+
+				</ul>
+
+			</div>
+
+			<div class="menu__menu-group menu__menu-group__right">
+
+				<form class="search">
+
+				    <label class="search__icon" for="searchbox"><span class="custom-icons custom-icons__white">zoek</span></label>
+				    <input class="search__element" tabindex="4" type="text" id="searchbox">
+
+			    </div>
+
+		    </div>
+
+			<nav class="menu__menu-group menu__menu-group__right">
+
+				<ul class="menu__menu-items">
+
+					<li class="menu-item"><a href="#" tabindex="2" class="menu-item__link"><span class="custom-icons custom-icons__white">links</span></a></li>
+
+					<li class="menu-item"><a href="#" tabindex="3" class="menu-item__link"><span class="custom-icons custom-icons__white">rechts</span></a></li>
+
+				</ul>
+
+			</nav>
+
+		</header>
+
+		<nav class="menu--mobile">
+
+				<ul class="menu__menu-items">
+
+						<li class="menu-item"><a href="#" tabindex="2" class="menu-item__link">Home</a></li>
+						<li class="menu-item"><a href="#" tabindex="3" class="menu-item__link">About</a></li>
+						<li class="menu-item"><a href="#" tabindex="3" class="menu-item__link">Contact</a></li>
+
+				</ul>
+
+		</nav>
+
+		<section role="main" class="content">
+
+			<h1 class="content__title">Page Title</h1>
+
+			<article class="article" aria-hidden="true">
+
+				<div class="article__item article__rearrange">
+
+					<div class="article__image">
+
+						<img src="../images/1280x720.jpg"/>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec lobortis dolor. Praesent tellus neque, hendrerit id magna eu, semper aliquam turpis. Donec dictum diam quis auctor scelerisque. Morbi molestie justo odio, condimentum aliquet orci mattis sit amet. Vivamus imperdiet, odio vel pulvinar iaculis, nunc lacus semper metus, sit amet rutrum nibh ex a nunc. Fusce mattis auctor tempor. Nam convallis malesuada arcu, nec placerat mauris tristique ut. Maecenas et nisi nulla. Nam arcu leo, condimentum nec felis et, sagittis eleifend diam. Phasellus imperdiet mi risus, posuere pellentesque ipsum convallis id.</p>
+
+				<div class="article__divide-by-three article__rearrange">
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/160x90.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/320x180.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/640x360.jpg"/>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Suspendisse sed quam egestas, tristique sem et, euismod elit. Curabitur condimentum, ante nec gravida maximus, metus dui posuere ligula, in tempor odio eros eget eros. Proin dui risus, gravida a consectetur eu, tempor in urna. Cras imperdiet est ut elit blandit, ac laoreet urna vulputate. Proin ornare mi nulla, posuere mollis nisi viverra vel. Maecenas viverra magna massa. Mauris pulvinar lacus in placerat porttitor. Nullam tincidunt eget urna sed euismod.</p>
+
+				<div class="article__divide-by-three article__rearrange">
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/1280x960.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/1440x1080.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/1600x1200.jpg" />
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Etiam egestas nibh venenatis nunc pretium, ut viverra nunc scelerisque. Aliquam vel ante massa. Curabitur sollicitudin a dui non fringilla. In porta urna elementum aliquet pulvinar. Suspendisse scelerisque bibendum lacus sit amet eleifend. Donec et ipsum eu diam posuere rutrum et id nisl. Cras rhoncus nisi eget urna posuere pretium. Vestibulum eu justo et lorem malesuada volutpat. Nam finibus sapien faucibus gravida posuere. Quisque vulputate magna in varius pretium. Aenean in quam nisi.</p>
+
+				<div class="article__item article__rearrange">
+
+					<div class="article__image">
+
+						<img src="../images/1280x720.jpg"/>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Aliquam a sapien nec arcu consequat congue. Vivamus metus augue, feugiat sed lobortis non, maximus vitae mauris. Cras tincidunt bibendum sem, sit amet consequat turpis sagittis sit amet. Donec aliquam eleifend odio, a dapibus enim laoreet eget. Nam dictum dapibus hendrerit. Duis vitae ex bibendum, varius orci sed, ultricies lectus. Ut enim nisi, bibendum ac odio ultrices, varius dictum felis. Integer ut urna ipsum. Quisque vel leo eget velit feugiat iaculis vel sed dolor.</p>
+
+				<div class="article__item article__rearrange">
+
+					<div class="article__video">
+
+						<div id="videoPlayerDiv"></div>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam congue tincidunt odio quis lacinia. Etiam posuere augue ut semper vehicula. Praesent vel tincidunt lorem. Nulla facilisis luctus orci at vehicula. Pellentesque in congue erat, vel iaculis est. Sed efficitur gravida nulla, ac ultrices dui vulputate nec. Duis ante libero, ultrices quis egestas quis, aliquam sit amet enim.</p>
+
+			</article>
+
+		</section>
+
+	</main>
+
+	<script src="../scripts/jwplayer.js"></script>
+
+	<script>
+
+			(function(){
+
+					document.querySelector('.js-menu-toggle').addEventListener('click', function(){
+						document.querySelector('.main').classList.toggle('menu-open');
+					});
+
+					jwplayer.key = "<jwplayer-key-goes-here>";
+
+					jwplayer(document.getElementById("videoPlayerDiv")).setup({
+					    file: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v",
+					    width : "100%",
+					    aspectratio: "16:9",
+							autostart: false
+					});
+			})();
+
+	</script>
+
+</body>
+</html>

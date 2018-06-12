@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Demo</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../styles/performance-1.css" />
+
+	<script src="../scripts/jwplayer.js"></script>
+
+	<script>
+
+			(function(){
+
+					document.addEventListener("DOMContentLoaded", function(event) {
+
+							document.querySelector('.js-menu-toggle').addEventListener('click', function(){
+								document.querySelector('.main').classList.toggle('menu-open');
+							});
+
+							jwplayer.key = "<jwplayer-key-goes-here>";
+
+							jwplayer(document.getElementById("videoPlayerDiv")).setup({
+							    file: "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_640x360.m4v",
+							    width : "100%",
+							    aspectratio: "16:9",
+									autostart: false
+							});
+					});
+			})();
+
+	</script>
+
+</head>
+
+<body>
+
+	<main class="main">
+
+		<header class="menu">
+
+			<div class="menu__menu-group menu__menu-group__left">
+
+				<ul class="menu__menu-items">
+
+					<li class="menu-item">
+						<button class="menu-item__link icon__toggle js-menu-toggle">
+							<span class="custom-icons custom-icons__white">&#xe15c;</span>
+							<span class="custom-icons custom-icons__white">&#xe209;</span>
+						</button>
+					</li>
+
+					<li class="menu-item"><div class="menu-item__text"><span class="custom-icons custom-icons__white">&#xe600;</span></div></li>
+
+				</ul>
+
+			</div>
+
+			<div class="menu__menu-group menu__menu-group__right">
+
+				<form class="search">
+
+				    <label class="search__icon" for="searchbox"><span class="custom-icons custom-icons__white">&#xe2ca;</span></label>
+				    <input class="search__element" tabindex="4" type="text" id="searchbox">
+
+			    </div>
+
+		    </div>
+
+			<nav class="menu__menu-group menu__menu-group__right">
+
+				<ul class="menu__menu-items">
+
+					<li class="menu-item"><a href="#" tabindex="2" class="menu-item__link"><span class="custom-icons custom-icons__white">&#xe207;</span></a></li>
+
+					<li class="menu-item"><a href="#" tabindex="3" class="menu-item__link"><span class="custom-icons custom-icons__white">&#xe208;</span></a></li>
+
+				</ul>
+
+			</nav>
+
+		</header>
+
+		<nav class="menu--mobile">
+
+				<ul class="menu__menu-items">
+
+						<li class="menu-item"><a href="#" tabindex="2" class="menu-item__link">Home</a></li>
+						<li class="menu-item"><a href="#" tabindex="3" class="menu-item__link">About</a></li>
+						<li class="menu-item"><a href="#" tabindex="3" class="menu-item__link">Contact</a></li>
+
+				</ul>
+
+		</nav>
+
+		<section role="main" class="content">
+
+			<h1 class="content__title">Page Title</h1>
+
+			<article class="article" aria-hidden="true">
+
+				<div class="article__item article__rearrange">
+
+					<div class="article__image">
+
+						<img src="../images/1280x720.jpg"/>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec lobortis dolor. Praesent tellus neque, hendrerit id magna eu, semper aliquam turpis. Donec dictum diam quis auctor scelerisque. Morbi molestie justo odio, condimentum aliquet orci mattis sit amet. Vivamus imperdiet, odio vel pulvinar iaculis, nunc lacus semper metus, sit amet rutrum nibh ex a nunc. Fusce mattis auctor tempor. Nam convallis malesuada arcu, nec placerat mauris tristique ut. Maecenas et nisi nulla. Nam arcu leo, condimentum nec felis et, sagittis eleifend diam. Phasellus imperdiet mi risus, posuere pellentesque ipsum convallis id.</p>
+
+				<div class="article__divide-by-three article__rearrange">
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/160x90.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/320x180.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/640x360.jpg"/>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Suspendisse sed quam egestas, tristique sem et, euismod elit. Curabitur condimentum, ante nec gravida maximus, metus dui posuere ligula, in tempor odio eros eget eros. Proin dui risus, gravida a consectetur eu, tempor in urna. Cras imperdiet est ut elit blandit, ac laoreet urna vulputate. Proin ornare mi nulla, posuere mollis nisi viverra vel. Maecenas viverra magna massa. Mauris pulvinar lacus in placerat porttitor. Nullam tincidunt eget urna sed euismod.</p>
+
+				<div class="article__divide-by-three article__rearrange">
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/1280x960.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/1440x1080.jpg"/>
+
+						</div>
+
+					</div>
+
+					<div class="article__item">
+
+						<div class="article__image">
+
+							<img src="../images/1600x1200.jpg" />
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Etiam egestas nibh venenatis nunc pretium, ut viverra nunc scelerisque. Aliquam vel ante massa. Curabitur sollicitudin a dui non fringilla. In porta urna elementum aliquet pulvinar. Suspendisse scelerisque bibendum lacus sit amet eleifend. Donec et ipsum eu diam posuere rutrum et id nisl. Cras rhoncus nisi eget urna posuere pretium. Vestibulum eu justo et lorem malesuada volutpat. Nam finibus sapien faucibus gravida posuere. Quisque vulputate magna in varius pretium. Aenean in quam nisi.</p>
+
+				<div class="article__item article__rearrange">
+
+					<div class="article__image">
+
+						<img src="../images/1280x720.jpg"/>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Aliquam a sapien nec arcu consequat congue. Vivamus metus augue, feugiat sed lobortis non, maximus vitae mauris. Cras tincidunt bibendum sem, sit amet consequat turpis sagittis sit amet. Donec aliquam eleifend odio, a dapibus enim laoreet eget. Nam dictum dapibus hendrerit. Duis vitae ex bibendum, varius orci sed, ultricies lectus. Ut enim nisi, bibendum ac odio ultrices, varius dictum felis. Integer ut urna ipsum. Quisque vel leo eget velit feugiat iaculis vel sed dolor.</p>
+
+				<div class="article__item article__rearrange">
+
+					<div class="article__video">
+
+						<div id="videoPlayerDiv"></div>
+
+					</div>
+
+				</div>
+
+				<p class="article__text">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam congue tincidunt odio quis lacinia. Etiam posuere augue ut semper vehicula. Praesent vel tincidunt lorem. Nulla facilisis luctus orci at vehicula. Pellentesque in congue erat, vel iaculis est. Sed efficitur gravida nulla, ac ultrices dui vulputate nec. Duis ante libero, ultrices quis egestas quis, aliquam sit amet enim.</p>
+
+			</article>
+
+		</section>
+
+	</main>
+
+</body>
+</html>

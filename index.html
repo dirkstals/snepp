@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Performance Demo</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		a,ul{width:100%}*{margin:0;padding:0}body{font-family:Arial;font-size:14px;line-height:24px}a{display:inline;color:#3030F0}p{padding:12px 0}ul{list-style:none}ul li{background:#F0F0F0;border:1px solid #A0A0A0;margin:12px;padding:0 24px}ul li ul{display:none;list-style:disc;padding:12px}ul li ul:target{display:block}ul li ul li{border:none;padding:0;margin:0}
+	</style>
+
+</head>
+
+<body>
+
+
+	<ul>
+
+		<li>
+			<p>1 : <a href="pages/performance-1.html">demo</a>, <a href="#performance1">info</a>. Normal situation</p>
+			<ul id="performance1">
+				CSS reference in head<br />
+			  JS reference in head<br />
+			  Custom fonts reference in css file<br />
+			  Icon font reference in css file<br />
+				<br />
+				<li>FOIT - Flash of Invisble Text</li>
+				<li>Slow</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>2 : <a href="pages/performance-2.html">demo</a>, <a href="#performance2">info</a>. Base64 Fonts</p>
+			<ul id="performance2">
+				CSS reference in head<br />
+			  JS reference in head<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+				<br />
+				<li>Slower</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>3 : <a href="pages/performance-3.html">demo</a>, <a href="#performance3">info</a>. remove renderblocking JS</p>
+			<ul id="performance3">
+				CSS reference in head<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  <br />
+				<li>Page jumping</li>
+				<li>Not so slow</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>4 : <a href="pages/performance-4.html">demo</a>, <a href="#performance4">info</a>. remove renderblocking CSS</p>
+			<ul id="performance4">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>FOUC - Flash of Unstyled Content</li>
+				<li>Page jumping</li>
+				<li>Weird characters instead of icons</li>
+				<li>Extremely Fast</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>5 : <a href="pages/performance-5.html">demo</a>, <a href="#performance5">info</a>. Inline critical CSS</p>
+			<ul id="performance5">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  + inline style for critical css<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>Page jumping</li>
+				<li>Weird characters instead of icons</li>
+				<li>Super Fast</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>6 : <a href="pages/performance-6.html">demo</a>, <a href="#performance6">info</a>. Ligatures</p>
+			<ul id="performance6">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  + inline style for critical css<br />
+			  ligatures for icons in stead of html codes<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>Page jumping</li>
+				<li>Words instead of icons</li>
+				<li>Super Fast</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>6b : <a href="pages/performance-6b.html">demo</a>, <a href="#performance6b">info</a>. Inline icon font</p>
+			<ul id="performance6b">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  + inline style for critical css<br />
+			  ligatures for icons in stead of html codes<br />
+			  + inline icon font (maybe only visible icons, like hamburger and logo, for caching)<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>Page jumping</li>
+				<li>Fast</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>7 : <a href="pages/performance-7.html">demo</a>, <a href="#performance7">info</a>. Aspect ratio images</p>
+			<ul id="performance7">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  + inline style for critical css<br />
+			  ligatures for icons in stead of html codes<br />
+			  + inline icon font<br />
+			  + image placeholders<br />
+			  + image error and loading classes<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>slow image load, baseline</li>
+				<li>Fast</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>7b : <a href="pages/performance-7b.html">demo</a>, <a href="#performance7b">info</a>. Aspect ratio images</p>
+			<ul id="performance7b">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  + inline style for critical css<br />
+			  ligatures for icons in stead of html codes<br />
+			  + inline icon font<br />
+			  + image placeholders<br />
+			  + image error and loading classes<br />
+			  progressive jpeg images<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>faster image load, progressive</li>
+				<li>Fast viewable</li>
+			</ul>
+		</li>
+
+		<li>
+			<p>8 : <a href="pages/performance-8.html">demo</a>, <a href="#performance8">info</a>. Toggle states</p>
+			<ul id="performance8">
+				CSS reference in noscript tag<br />
+			  JS reference in bottom<br />
+			  Custom fonts base64 in css file<br />
+			  Icon font base64 in css file<br />
+			  + async-css-script after noscript tag<br />
+			  + inline style for critical css<br />
+			  ligatures for icons in stead of html codes<br />
+			  + inline icon font<br />
+			  + image placeholders<br />
+			  + image error and loading classes<br />
+			  progressive jpeg images<br />
+			  queueing toggle states<br />
+			  <br />
+				<li>FOUT - Flash of Unstyled Text</li>
+				<li>Fast usable</li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>
